@@ -1,5 +1,3 @@
-# FILL IN INFO ABOUT YOUR GAME HERE. 
+# Week 5 in class code. 
 
-DO NOT LEAVE IT LIKE THIS!!!
-
-Please? Please, give me content. I'm begging you. It's not that hard. Thanks.
+Made a level builder with ASCII values including a player, obsticals, enemies and level end goal. 
