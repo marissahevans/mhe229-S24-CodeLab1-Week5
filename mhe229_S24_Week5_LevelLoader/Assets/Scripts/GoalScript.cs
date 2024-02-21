@@ -12,7 +12,7 @@ public class GoalScript : MonoBehaviour
         }
         if (other.CompareTag("Enemy"))
         {
-            ASCIILevelLoader.instance.CurrentLevel;
+            ASCIILevelLoader.instance.CurrentLevel = ASCIILevelLoader.instance.CurrentLevel;
         }
     }
 }

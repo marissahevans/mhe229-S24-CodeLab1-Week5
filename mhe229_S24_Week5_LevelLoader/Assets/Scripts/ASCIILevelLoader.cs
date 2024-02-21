@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class ASCIILevelLoader : MonoBehaviour
 {
-
-    public static ASCIILevelLoader instance;
-
-    private GameObject level;
+    
+    GameObject level;
     int currentLevel = 0;
 
     public int CurrentLevel
@@ -23,7 +21,9 @@ public class ASCIILevelLoader : MonoBehaviour
             LoadLevel();
         }
     }
-    public string FILE_PATH;
+    string FILE_PATH;
+    
+    public static ASCIILevelLoader instance;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class ASCIILevelLoader : MonoBehaviour
     void LoadLevel()
     {
         Destroy(level);
-        GameObject level = new GameObject("Level Objects");
+        level = new GameObject("Level Objects");
         string[] lines = File.ReadAllLines(FILE_PATH.Replace("Num", currentLevel + ""));
         Debug.Log(lines[0]);
 
@@ -74,7 +74,7 @@ public class ASCIILevelLoader : MonoBehaviour
                         newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Spike"));
                         break;
                     case 'G': // add a goal point
-                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Spike"));
+                        newObject = Instantiate(Resources.Load<GameObject>("Prefabs/Goal"));
                         break;
                     default:
                         break;
@@ -82,6 +82,7 @@ public class ASCIILevelLoader : MonoBehaviour
 
                 if (newObject != null)
                 {
+                    // Give new position based on ASCII file
                     newObject.transform.position = new Vector3(x, -y, 0);
                     newObject.transform.parent = level.transform;
                 }

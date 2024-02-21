@@ -30,7 +30,7 @@ public class WASDController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(Vector3.down * forceAmt);
+            rb.AddForce(Vector3.right * forceAmt);
         }
     }
 }
